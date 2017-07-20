@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+    <title>Roll Init</title>
+    <!--Style Sheets-->
+    <link rel="icon" type="image/png" href="logo.ico" sizes="40x40">
+    <link rel="stylesheet" type="text/css" href="../css/reset.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+      crossorigin="anonymous">
+    <!-- Materialize Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/materialize.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/poly.css">
+    <link href="https://fonts.googleapis.com/css?family=Eagle+Lake" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="../js/char.js"></script>
+  </head>
+
+  <body>
+    <div id="index-banner" class="parallax-container" style="max-height:250px; min-width:100%">
+      <div class="section no-pad-bot">
+
+        <div class="container">
+          <nav role="navigation" style="z-index: 100">
+            <ul>
+              <!-- <li id="login" class="nav-tab" data-toggle="modal" data-target="#login-container"><a class="nav-anc">Login</a></li> -->
+              <li id="logout" class="nav-tab"><a class="nav-anc" href="/users/logout">Logout</a></li>
+            </ul>
+            <!-- Dropdown Structure -->
+            <ul id="dropdown1" class="dropdown-content">
+              <li><a href="/">Home</a></li>
+              <li><a href="/profile">Profile</a></li>
+              <li><a href="/char">Character Creation</a></li>
+            </ul>
+            <!-- Dropdown Trigger -->
+            <ul class="right">
+
+              <li><a class="dropdown-button" href="#" data-activates="dropdown1"><i class="large material-icons right">view_headline</i></a></li>
+
+            </ul>
+          </nav>
+
+          <div class="container">
+            <h1 class="header center" id="shadowtext">Character Creation</h1>
+            <br><br>
+          </div>
+        </div>
+        <div class="parallax"><img id="mistymountains" src="../images/mistymountains.png" alt="mistymountains">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col l2">
+        <div class="container">
+          <div id="app"></div>
+          <script src="../bundle.js"></script>
+        </div>
+      </div>
+      <div class="col l6">
+        <div class="container register-container" id="register-container">
+          <!-- <h2 class="page-header"> Character Creator </h2> -->
+          <!-- <div id="app"></div> -->
+          <form method="post" action="/characters/add">
+            <div class="form-group">
+              <label id="toon">Name</label>
+              <input type="text" class="form-control" id="toon" placeholder="Georew Algor" name="name">
+            </div>
+            <div class="form-group">
+              <label id="toon">Age</label>
+              <input type="number" min=1 class="form-control" id="toon" placeholder="42" name="age">
+            </div>
+            <div class="form-group">
+              <label id="toon">Gender</label>
+              <select class="form-control" id="toon" name="gender">
+					<option selected disabled="true">Select</option>
+					<option>Male</option>
+					<option>Female</option>
+					<option>Other</option>
+				</select>
+            </div>
+            <div class="form-group">
+              <label id="toon">Race</label>
+              <select id="select-race" class="form-control" id="toon" name="race">
+					<option selected disabled="true">Select</option>
+					<option>Dragonborn</option>
+					<option>Dwarf</option>
+					<option>Elf</option>
+					<option>Gnome</option>
+					<option>Half-Elf</option>
+					<option>Half-Orc</option>
+					<option>Halfling</option>
+					<option>Human</option>
+					<option>Tiefling</option>
+				</select>
+            </div>
+            <div class="form-group">
+              <label>Class</label>
+              <select id="select-class" class="form-control" name="className">
+					<option selected disabled="true">Select</option>
+					<option>Barbarian</option>
+					<option>Bard</option>
+					<option>Cleric</option>
+					<option>Druid</option>
+					<option>Fighter</option>
+					<option>Monk</option>
+					<option>Paladin</option>
+					<option>Ranger</option>
+					<option>Rogue</option>
+					<option>Sorcerer</option>
+					<option>Warlock</option>
+					<option>Wizard</option>
+				</select>
+            </div>
+            <div class="form-group">
+              <label id="toon">Background</label>
+              <select id="select-background" class="form-control" id="toon" name="background">
+					<option selected disabled="true">Select</option>
+					<option>Acolyte</option>
+					<option>Charlatan</option>
+					<option>Criminal</option>
+					<option>Entertainer</option>
+					<option>Folk Hero</option>
+					<option>Guild Artisan</option>
+					<option>Hermit</option>
+					<option>Noble</option>
+					<option>Outlander</option>
+					<option>Sailor</option>
+					<option>Soldier</option>
+					<option>Urchin</option>
+				</select>
+            </div>
+            <div class="form-group">
+              <label id="toon">Level</label>
+              <input type="number" min=1 class="form-control" id="toon" placeholder="1" name="level">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+      </div>
+      <div class="col l3">
+        <div id="char-preview-container">
+          <h5>Character Notes</h5>
+          <textarea id="char-notes" name="character_notes" placeholder="Traits, Proficiencies, Languages, etc..."
+            cols="35" rows="20"></textarea>
+          <textarea id="char-class" name="character-class" placeholder="Class Info" cols="35" rows="20"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <div class="col 12">
+      <div id="background-container">
+        <h5>Background</h5>
+        <textarea id="char-background" name="character-background" placeholder="Background Story"
+          cols="40" rows="10"></textarea>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="page-footer green darken-4">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5>Our Company</h5>
+            <p>We are a team of students working on this project like it's our full time
+              job.
+            </p>
+            <p>We also just love Dungeons & Dragons.</p>
+            <br>
+            <h5>Contact Us</h5>
+            <address>
+              <a href="mailto:rollinit@gmail.com">rollinit@gmail.com</a>
+            </address>
+          </div>
+          <div class="col l3 s12">
+          </div>
+          <div class="col l3 s12">
+            <h5>Connect</h5>
+            <i class="icon"> <a href="https://www.facebook.com"><img id="overlay"src="../images/facebook.png"></a></i>
+            <i class="icon"> <a href="https://www.instagram.com"><img id="overlay"src="../images/instagram.png"></a></i>
+            <br>
+            <i class="icon"><a href="https://www.twitter.com"><img id="overlay"src="../images/twitter.png"></a></i>
+            <i class="icon"> <a href="https://plus.google.com"><img id="overlay" src="../images/googleplus.png"></a></i>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          <p id="ourNames">&copy2017 Made by Travis Nash, Paden Pace, Monica Jones, & Keli Poole
+            <a class="brown-text text-lighten-3"></a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      $(document).ready(function () {
+        (function ($) {
+          $(function () {
+            $('div#login-container').modal();
+            $(".dropdown-button").dropdown();
+            $('.button-collapse').sideNav();
+            $('.parallax').parallax();
+          });
+        });
+      });
+
+      var selectedRace = $("#select-race").val();
+      $("#select-race").on("change", function () {
+        selectedRace = $("#select-race").val();
+        $.get("/apiRace/" + selectedRace, function (data) {
+          function raceNotes() {
+            $("#char-notes").empty();
+            $("#char-notes").append(selectedRace,
+              "\n==============================\n");
+          };
+          if (data) {
+            raceNotes();
+            $("#char-notes").append(data.statsBonus.desc +
+              "\n==============================\n");
+            getRacial();
+            getWeapons();
+            getLanguage();
+
+            function getRacial() {
+              var racial = data.racialTraits;
+              var traits = [];
+              for (var i = 0; i < racial.length; i++) {
+                traits.push(racial[i].name + ": " + racial[i].desc + "\n");
+              }
+              if (racial.length > 0) {
+                $("#char-notes").append("** Special Trait(s) ** \n" + traits
+                  .join("", ",") + "\n\n");
+              }
+
+            };
+
+            function getWeapons() {
+              var weapons = data.startingProfs;
+              var profs = [];
+              for (var i = 0; i < weapons.length - 1; i++) {
+                profs.push(weapons[i].name + "\n")
+              }
+              if (profs.length > 0) {
+                $("#char-notes").append("** Weapon Proficiencies ** \n" +
+                  profs.join("", ","));
+              }
+            };
+
+            function getLanguage() {
+              var generic = data.genericTraits;
+              var traitDesc = [];
+              for (var i = 0; i < generic.length; i++) {
+                var language = generic[i].languageDesc;
+                if (language !== undefined) {
+                  language = language;
+                }
+              }
+              $("#char-notes").append("** Language Skills ** \n" + language);
+            };
+
+          }
+
+        });
+
+      });
+
+
+      var selectedBackground = $("#select-background").val();
+      $("#select-background").on("change", function () {
+        selectedBackground = $("#select-background").val();
+        $.get("/apiBackground/" + selectedBackground, function (data) {
+          function getBackground() {
+            $("#char-background").empty();
+            $("#char-background").append(selectedBackground,
+              "\n==============================\n",
+              "Story: " + data.def + "\n-----------------------------\n",
+              "Skill proficiencies: " + data.skillProf +
+              "\n-----------------------------\n",
+              "Equipment: " + data.equipment +
+              "\n-----------------------------\n",
+              "\n==============================\n");
+          };
+          if (data) {
+            getBackground();
+          }
+        });
+      });
+      var selectedClass = $("#select-class").val();
+
+      $("#select-class").on("change", function () {
+        selectedClass = $("#select-class").val().toLowerCase();
+        $.get("/apiClass/" + selectedClass, function (data) {
+          function getHitDie() {
+            $("#char-class").empty();
+            $("#char-class").append(selectedClass.toUpperCase(),
+              "\n==============================\n",
+              "Hit Die: " + data[0].hit_die +
+              "\n------------------------------------\n");
+          };
+
+          function getEquipment() {
+            data = data[0];
+            if (data.starting_equipment.equipment !== undefined) {
+              $("#char-class").append(
+                "*Starting Equipment*\n" + data.starting_equipment.equipment,
+                "\n@@@@@@@@@@@@@@@@@@@@@@@@\n"
+              )
+            } else {
+              $("#char-class").append(
+                "*Starting Equipment*\n" + data.class_levels.equipment,
+                "\n@@@@@@@@@@@@@@@@@@@@@@@@\n"
+              )
+            }
+          }
+          console.log(data);
+          if (data) {
+            getHitDie();
+            getEquipment();
+          }
+
+          // getSkillChoices();
+          // getEquipment();
+        })
+      })
+    </script>
+
+  </body>
+
+</html>
