@@ -108,6 +108,7 @@ p {
 @media only screen and (max-width: 600px) {
   #index-banner .section {
     top: 0;
+    margin-left: 20px;
   }
 }
 
@@ -313,12 +314,11 @@ button.delete-char {
   background-color: rgba(32, 58, 119, .9);
 }
 
-
-/* button.delete-char {
-    border-bottom: rgba(32, 58, 119, .9);
-} */
-
 input.form-control[type=text]:focus:not([readonly]) {
   border-bottom: rgba(32, 58, 119, .9);
   box-shadow: rgba(32, 58, 119, .9);
+}
+img#misty{
+  display: initial;
+  height:800px;
 }

@@ -10,7 +10,7 @@ var localStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 var db = mongoose.connection;
-
+var Promise = Promise;
 var users = require('./routes/users');
 var characters = require('./routes/characters');
 
@@ -88,5 +88,5 @@ db.once('open', function () {
 var PORT = process.env.PORT || 8880;
 // Listener
 app.listen(PORT, function () {
-  console.log("App listening on PORT: " + PORT);
+  console.log(`Listening On Port: ${PORT}`);
 });
