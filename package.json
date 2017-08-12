@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "publish": "npm run build"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nebulasea/roll-init.git"
